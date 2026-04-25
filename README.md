@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+# Birva Vaghasiya - Personal Portfolio
 
-## Project info
+Welcome to the repository for my personal portfolio website! I am Birva Vaghasiya, an aspiring App Developer and UI/UX Enthusiast based in Rajkot, Gujarat. I specialize in Flutter development, UI/UX design, and exploring Deep Learning solutions.
 
-**URL**: https://lovable.dev/projects/a0b2d064-a0c4-490a-9004-c697736a97e3
+## ✨ Features
 
-## How can I edit this code?
+- **Responsive Design**: Built to look great on desktop, tablet, and mobile.
+- **Modern UI**: Utilizing sleek gradients, hover effects, and a cohesive design system.
+- **Dark/Light Mode**: Full support for system-based themes.
+- **Interactive Components**: Using Shadcn UI and Radix UI primitives for accessible interactivity.
 
-There are several ways of editing your application.
+## 🚀 Tech Stack
 
-**Use Lovable**
+This project is built with a fast and modern web stack:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a0b2d064-a0c4-490a-9004-c697736a97e3) and start prompting.
+- **Framework**: [React 18](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn-ui](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Routing**: [React Router](https://reactrouter.com/)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Local Development
 
-**Use your preferred IDE**
+To run this project locally on your machine, follow these steps:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Ensure you have [Node.js](https://nodejs.org/) installed along with `npm` or `bun`.
 
-Follow these steps:
+### Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Birvaa/remix-of-birva-main.git
+   cd remix-of-birva-main
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Install dependencies:**
 
-# Step 3: Install the necessary dependencies.
-npm i
+   Using npm:
+   ```bash
+   npm install
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+   *Or using Bun:*
+   ```bash
+   bun install
+   ```
 
-**Edit a file directly in GitHub**
+3. **Start the development server:**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+   Using npm:
+   ```bash
+   npm run dev
+   ```
 
-**Use GitHub Codespaces**
+   *Or using Bun:*
+   ```bash
+   bun run dev
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4. **Preview:** Open your web browser and navigate to `http://localhost:8080` (or whatever address Vite specifies in your terminal).
 
-## What technologies are used for this project?
+## 📁 Project Structure
 
-This project is built with:
+- `/src/components`: All the main portfolio sections (Hero, About, Projects, Contact, etc.)
+- `/src/hooks`: Custom React hooks (like `use-toast`)
+- `/src/pages`: Top-level page views like `Index.tsx`
+- `/src/index.css`: Global styles including Tailwind configurations
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📬 Let's Connect!
 
-## How can I deploy this project?
+I'm always excited to meet curious minds and explore new opportunities together.
 
-Simply open [Lovable](https://lovable.dev/projects/a0b2d064-a0c4-490a-9004-c697736a97e3) and click on Share -> Publish.
+- **Email**: Birvaa1409@gmail.com
+- **LinkedIn**: [birvaa](https://www.linkedin.com/in/birvaa)
+- **GitHub**: [Birvaa](https://github.com/Birvaa)
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+*© Birva Vaghasiya*

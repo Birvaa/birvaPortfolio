@@ -19,17 +19,21 @@ const About = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              Hi! I'm <strong className="text-teal-600 dark:text-teal-400">Birva Vaghasiya</strong> from Rajkot, Gujarat. 
-              I'm currently pursuing my B.Tech in Computer Science Engineering at Darshan University 
+              Hi! I'm <strong className="text-teal-600 dark:text-teal-400">Birva Vaghasiya</strong> from Rajkot, Gujarat.
+              I'm currently pursuing my B.Tech in Computer Science Engineering at Darshan University
               with an expected graduation in 2027.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              I'm passionate about creating engaging, user-friendly experiences through design and development. 
-              My focus areas include UI/UX design and Flutter app development, where I love bringing 
+              I'm passionate about creating engaging, user-friendly experiences through design and development.
+              My focus areas include UI/UX design and Flutter app development, where I love bringing
               creative ideas to life through clean code and beautiful interfaces.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me exploring new design trends, learning about emerging 
+              I also have a growing interest in Deep Learning and data-driven applications, exploring how models
+              can solve real-world problems and enhance user experiences.
+            </p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              When I'm not coding, you can find me exploring new design trends, learning about emerging
               technologies, or working on personal projects that challenge my creativity and problem-solving skills.
             </p>
           </div>
@@ -79,7 +83,7 @@ const About = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Passion</h3>
-                  <p className="text-gray-600 dark:text-gray-400">UI/UX Design & App Development</p>
+                  <p className="text-gray-600 dark:text-gray-400"> ML/DL, Web & Mobile App Development, and UI/UX</p>
                 </div>
               </div>
             </Card>

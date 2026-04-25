@@ -20,22 +20,22 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="flex justify-center space-x-6 mb-8">
-            <a 
-              href="mailto:Birvaa1409@gmail.com" 
+            <a
+              href="mailto:Birvaa1409@gmail.com"
               className="text-gray-400 hover:text-teal-400 transition-colors duration-300 hover:scale-110 transform"
             >
               <Mail className="h-6 w-6" />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/birvaa" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/birvaa"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-teal-400 transition-colors duration-300 hover:scale-110 transform"
             >
               <Linkedin className="h-6 w-6" />
             </a>
-            <a 
-              href="https://github.com/Birvaa" 
+            <a
+              href="https://github.com/Birvaa"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-teal-400 transition-colors duration-300 hover:scale-110 transform"
@@ -47,9 +47,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-gray-800 pt-6">
             <p className="text-gray-400 text-sm flex items-center justify-center">
-              © {currentYear} Birva Vaghasiya. Made with 
-              <Heart className="h-4 w-4 mx-1 text-teal-400" fill="currentColor" />
-              in Rajkot, Gujarat
+              © {currentYear} Birva Vaghasiya.
             </p>
           </div>
         </div>
