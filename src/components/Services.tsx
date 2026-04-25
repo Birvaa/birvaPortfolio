@@ -1,0 +1,122 @@
+
+import { Card } from "@/components/ui/card";
+import { Palette, Smartphone, Code, Brain } from "lucide-react";
+
+const Services = () => {
+  const services = [
+    {
+      icon: Palette,
+      title: "UI/UX & Visual Design",
+      description: "Designing clean, intuitive interfaces and crafting stunning visual content using modern design tools like Figma and Canva.",
+      features: ["Wireframing & Prototyping", "Visual Design", "Canva & Figma", "Brand & Social Graphics"],
+      gradient: "from-teal-500 to-cyan-500"
+    },
+    {
+      icon: Smartphone,
+      title: "App Development",
+      description: "Building smooth and scalable Flutter apps from concept to deployment with clean code and beautiful interfaces.",
+      features: ["Flutter Development", "Cross-platform", "Responsive Design", "App Store Deployment"],
+      gradient: "from-cyan-500 to-blue-500"
+    },
+    {
+      icon: Code,
+      title: "Frontend Development",
+      description: "Creating responsive and interactive web applications using modern technologies and best practices.",
+      features: ["HTML/CSS", "JavaScript", "Bootstrap", "Responsive Design"],
+      gradient: "from-blue-500 to-indigo-500"
+    },
+    {
+      icon: Brain,
+      title: "AI / ML & Deep Learning",
+      description: "Exploring machine learning and deep learning to build smart, data-driven solutions like predictive models and AI-powered features.",
+      features: ["Machine Learning", "Deep Learning", "Model Training", "Data Analysis"],
+      gradient: "from-indigo-500 to-purple-500"
+    }
+  ];
+
+  return (
+    <section id="services" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            My <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">Services</span>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            What I can do to help bring your digital ideas to life
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <Card key={index} className="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-teal-100 dark:border-teal-900/20 overflow-hidden relative">
+              {/* Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className={`p-4 bg-gradient-to-br ${service.gradient} rounded-full w-fit mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <service.icon className="h-8 w-8 text-white" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide">
+                    What I Offer:
+                  </h4>
+                  <ul className="grid grid-cols-2 gap-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
+                        <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 flex-shrink-0`}></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16 p-8 bg-gradient-to-br from-teal-100 to-cyan-100 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl border border-teal-200 dark:border-teal-800">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Ready to Start Your Project?
+          </h3>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+            Let's collaborate to create something amazing together. I'm always excited to work on new challenges and bring creative ideas to life.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:Birvaa1409@gmail.com" className="inline-block">
+              <button className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-3 text-lg rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                Get in Touch
+              </button>
+            </a>
+            <button 
+              onClick={() => {
+                const element = document.querySelector('#projects');
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="border-2 border-teal-300 dark:border-teal-700 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 px-8 py-3 text-lg rounded-full transition-all duration-300 hover:scale-105"
+            >
+              View My Work
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
