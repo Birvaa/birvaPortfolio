@@ -3,7 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Clock } from "lucide-react";
-
+import Tilt from 'react-parallax-tilt';
+import { motion } from 'framer-motion';
 const Projects = () => {
   const projects = [
     {
@@ -41,7 +42,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-gradient-to-br from-cyan-50 to-teal-50 dark:from-cyan-950/10 dark:to-teal-950/10">
+    <section id="projects" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -54,67 +55,115 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-teal-100 dark:border-teal-900/20">
-              <div className="p-6">
-                {/* Project Icon */}
-                <div className="text-6xl mb-4 text-center transform group-hover:scale-110 transition-transform duration-300">
-                  {project.image}
-                </div>
-
-                {/* Status Badge */}
-                <div className="flex justify-between items-center mb-4">
-                  <Badge 
-                    variant={project.status === "Completed" ? "default" : "secondary"}
-                    className={project.status === "Completed" 
-                      ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white" 
-                      : "bg-gradient-to-r from-amber-500 to-orange-500 text-white"
-                    }
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, type: "spring", bounce: 0.3 }}
+              className="h-full"
+            >
+              <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.2}
+                glareColor="#2dd4bf"
+                glarePosition="all"
+                glareBorderRadius="0.75rem"
+                tiltMaxAngleX={12}
+                tiltMaxAngleY={12}
+                scale={1.04}
+                transitionSpeed={2000}
+                className="h-full transform-gpu"
+                perspective={900}
+                tiltEnable={true}
+              >
+                <Card
+                  className="h-[380px] flex flex-col group overflow-hidden bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm border-teal-100 dark:border-teal-900/20 shadow-lg hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-500 relative rounded-xl"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Default State — floats above card */}
+                  <div
+                    className="absolute inset-0 p-6 flex flex-col items-center justify-center transition-all duration-700 group-hover:opacity-0 group-hover:scale-90 group-hover:-translate-y-6"
+                    style={{ transform: 'translateZ(40px)' }}
                   >
-                    {project.status === "In Progress" && <Clock className="w-3 h-3 mr-1" />}
-                    {project.status}
-                  </Badge>
-                </div>
-
-                {/* Project Title */}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
-                  {project.title}
-                </h3>
-
-                {/* Project Description */}
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, techIndex) => (
-                    <Badge 
-                      key={techIndex} 
-                      variant="outline" 
-                      className="text-xs border-teal-300 dark:border-teal-700 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20"
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: index * 0.4 }}
+                      className="text-8xl mb-6 drop-shadow-2xl"
                     >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  {project.liveLink && (
-                    <Button 
-                      size="sm"
-                      asChild
-                      className="flex-1 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white transition-all duration-300"
+                      {project.image}
+                    </motion.div>
+                    <h3
+                      className="text-2xl font-bold text-gray-900 dark:text-white text-center"
+                      style={{ transform: 'translateZ(20px)' }}
                     >
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </Card>
+                      {project.title}
+                    </h3>
+                    {/* Tech stack preview chips floating */}
+                    <div className="flex flex-wrap gap-1.5 justify-center mt-3" style={{ transform: 'translateZ(15px)' }}>
+                      {project.technologies.slice(0, 3).map((tech, i) => (
+                        <span key={i} className="text-xs px-2 py-0.5 rounded-full bg-teal-500/10 dark:bg-teal-400/10 text-teal-600 dark:text-teal-400 border border-teal-200/40 dark:border-teal-700/40">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Hover Reveal Card */}
+                  <div className="absolute inset-0 px-6 py-8 flex flex-col bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] rounded-xl">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-teal-600 dark:text-teal-400">
+                        {project.title}
+                      </h3>
+                      <Badge
+                        variant={project.status === "Completed" ? "default" : "secondary"}
+                        className={project.status === "Completed"
+                          ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-0"
+                          : "bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0"
+                        }
+                      >
+                        {project.status === "In Progress" && <Clock className="w-3 h-3 mr-1" />}
+                        {project.status}
+                      </Badge>
+                    </div>
+
+                    <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 leading-relaxed line-clamp-4">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.technologies.slice(0, 5).map((tech, techIndex) => (
+                        <Badge
+                          key={techIndex}
+                          variant="outline"
+                          className="text-xs border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 bg-teal-50/50 dark:bg-teal-900/20"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 5 && (
+                        <span className="text-xs text-gray-500 flex items-center px-1">+{project.technologies.length - 5}</span>
+                      )}
+                    </div>
+
+                    <div className="flex gap-3 mt-auto">
+                      {project.liveLink && (
+                        <Button
+                          size="sm"
+                          asChild
+                          className="flex-1 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                        >
+                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            View Live
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </Card>
+              </Tilt>
+            </motion.div>
           ))}
         </div>
 
@@ -123,8 +172,8 @@ const Projects = () => {
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
             Want to see more of my work or discuss a project?
           </p>
-          <Button 
-            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-8 py-3 text-lg rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+          <Button
+            className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white px-10 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl h-12"
             onClick={() => {
               const element = document.querySelector('#contact');
               if (element) {

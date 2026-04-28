@@ -4,12 +4,13 @@ import { Palette, Smartphone, Code, Brain } from "lucide-react";
 
 const Services = () => {
   const services = [
+
     {
-      icon: Palette,
-      title: "UI/UX & Visual Design",
-      description: "Designing clean, intuitive interfaces and crafting stunning visual content using modern design tools like Figma and Canva.",
-      features: ["Wireframing & Prototyping", "Visual Design", "Canva & Figma", "Brand & Social Graphics"],
-      gradient: "from-teal-500 to-cyan-500"
+      icon: Brain,
+      title: "AI / ML & Deep Learning",
+      description: "Exploring machine learning and deep learning to build smart, data-driven solutions like predictive models and AI-powered features.",
+      features: ["Machine Learning", "Deep Learning", "Model Training", "Data Analysis"],
+      gradient: "from-indigo-500 to-purple-500"
     },
     {
       icon: Smartphone,
@@ -22,16 +23,17 @@ const Services = () => {
       icon: Code,
       title: "Frontend Development",
       description: "Creating responsive and interactive web applications using modern technologies and best practices.",
-      features: ["HTML/CSS", "JavaScript", "Bootstrap", "Responsive Design"],
+      features: ["HTML/CSS", "JavaScript", "Bootstrap", "React"],
       gradient: "from-blue-500 to-indigo-500"
     },
     {
-      icon: Brain,
-      title: "AI / ML & Deep Learning",
-      description: "Exploring machine learning and deep learning to build smart, data-driven solutions like predictive models and AI-powered features.",
-      features: ["Machine Learning", "Deep Learning", "Model Training", "Data Analysis"],
-      gradient: "from-indigo-500 to-purple-500"
+      icon: Palette,
+      title: "UI/UX & Visual Design",
+      description: "Designing clean, intuitive interfaces and crafting stunning visual content using modern design tools like Figma and Canva.",
+      features: ["Wireframing & Prototyping", "Visual Design", "Canva & Figma", "Brand & Social Graphics"],
+      gradient: "from-teal-500 to-cyan-500"
     }
+
   ];
 
   return (
@@ -48,38 +50,49 @@ const Services = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="group p-8 hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-teal-100 dark:border-teal-900/20 overflow-hidden relative">
-              {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-              
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className={`p-4 bg-gradient-to-br ${service.gradient} rounded-full w-fit mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="h-8 w-8 text-white" />
-                </div>
+            <Card key={index} className="h-[360px] group overflow-hidden bg-white/40 dark:bg-gray-800/40 backdrop-blur-sm border-teal-100 dark:border-teal-900/20 shadow-lg hover:shadow-2xl transition-all duration-500 relative">
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors duration-300">
+              {/* Default State */}
+              <div className="absolute inset-0 p-8 flex flex-col items-center justify-center transition-all duration-700 group-hover:opacity-0 group-hover:scale-95 group-hover:-translate-y-8">
+                <div className={`p-5 bg-gradient-to-br ${service.gradient} rounded-2xl mb-6 shadow-xl`}>
+                  <service.icon className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center">
                   {service.title}
                 </h3>
+              </div>
 
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+              {/* Hover Reveal Card */}
+              <div className="absolute inset-0 p-8 flex flex-col bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+                <div className="flex items-center mb-6">
+                  <div className={`p-2 bg-gradient-to-br ${service.gradient} rounded-lg mr-4`}>
+                    <service.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    {service.title}
+                  </h3>
+                </div>
+
+                <p className="text-gray-700 dark:text-gray-300 text-sm mb-6 leading-relaxed line-clamp-3">
                   {service.description}
                 </p>
 
-                {/* Features */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm uppercase tracking-wide">
+                <div className="space-y-3 mt-auto">
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-xs uppercase tracking-wider">
                     What I Offer:
                   </h4>
                   <ul className="grid grid-cols-2 gap-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                        <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 flex-shrink-0`}></div>
+                    {service.features.slice(0, 4).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-gray-700 dark:text-gray-300 bg-gray-50/50 dark:bg-gray-800/50 p-2 rounded-md">
+                        <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-3 flex-shrink-0`}></div>
                         {feature}
                       </li>
                     ))}
+                    {service.features.length > 4 && (
+                      <li className="text-xs text-gray-500 ml-5">
+                        +{service.features.length - 4} more
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -101,7 +114,7 @@ const Services = () => {
                 Get in Touch
               </button>
             </a>
-            <button 
+            <button
               onClick={() => {
                 const element = document.querySelector('#projects');
                 if (element) {

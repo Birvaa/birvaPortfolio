@@ -105,6 +105,13 @@ All colors MUST be HSL.
   }
 }
 
+/* Hide default cursor on pointer (non-touch) devices to show custom cursor */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

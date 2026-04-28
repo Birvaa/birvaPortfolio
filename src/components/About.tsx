@@ -1,10 +1,10 @@
 
 import { Card } from "@/components/ui/card";
 import { MapPin, GraduationCap, Calendar, Heart } from "lucide-react";
-
+import { motion } from 'framer-motion';
 const About = () => {
   return (
-    <section id="about" className="py-20 px-6 bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/10 dark:to-cyan-950/10">
+    <section id="about" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -17,7 +17,14 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -50, rotateY: -10 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-6"
+            style={{ perspective: 1000 }}
+          >
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               Hi! I'm <strong className="text-teal-600 dark:text-teal-400">Birva Vaghasiya</strong> from Rajkot, Gujarat.
               I'm currently pursuing my B.Tech in Computer Science Engineering at Darshan University
@@ -36,10 +43,17 @@ const About = () => {
               When I'm not coding, you can find me exploring new design trends, learning about emerging
               technologies, or working on personal projects that challenge my creativity and problem-solving skills.
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Content - Info Cards */}
-          <div className="grid gap-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 50, rotateY: 10 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="grid gap-6"
+            style={{ perspective: 1000 }}
+          >
             <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:scale-105 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border-teal-100 dark:border-teal-900/20">
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-full">
@@ -87,7 +101,7 @@ const About = () => {
                 </div>
               </div>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
