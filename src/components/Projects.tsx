@@ -15,14 +15,14 @@ const Projects = () => {
       status: "Completed",
       liveLink: "https://www.linkedin.com/posts/ugcPost-7349076084807602176-pdcq?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEviEggB83b625SUH-hrlg-GOQBJeGeJBpk"
     },
-    {
-      title: "Booksy",
-      description: "A comprehensive PDF reading app featuring resume-reading capabilities, session timer, an integrated Chat with PDF system, and a clean, intuitive user interface.",
-      image: "📚",
-      technologies: ["Flutter", "Dart", "PDF SDK", "AI Chat", "Timer"],
-      status: "Completed",
-      liveLink: "https://drive.google.com/drive/folders/1t6Rw_RSvbTAGK51ew8jL6Yfe-UP-JsIQ?usp=sharing"
-    },
+    // {
+    //   title: "Booksy",
+    //   description: "A comprehensive PDF reading app featuring resume-reading capabilities, session timer, an integrated Chat with PDF system, and a clean, intuitive user interface.",
+    //   image: "📚",
+    //   technologies: ["Flutter", "Dart", "PDF SDK", "AI Chat", "Timer"],
+    //   status: "Completed",
+    //   liveLink: "https://drive.google.com/drive/folders/1t6Rw_RSvbTAGK51ew8jL6Yfe-UP-JsIQ?usp=sharing"
+    // },
     {
       title: "Kidoku",
       description: "An elegant mobile Sudoku puzzle game for logic lovers with multiple difficulty levels and clean design aesthetics. Live on the Google Play Store.",
