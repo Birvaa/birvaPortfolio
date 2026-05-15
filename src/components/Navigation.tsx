@@ -20,7 +20,7 @@ const Navigation = () => {
       href: "#projects",
       dropdown: [
         { name: "Memory Game", href: "#projects", icon: "🧠" },
-        { name: "Booksy App", href: "#projects", icon: "📚" },
+        // { name: "Booksy App", href: "#projects", icon: "📚" },
         { name: "Kidoku", href: "#projects", icon: "🔢" },
         { name: "CardioPredict", href: "#projects", icon: "❤️" }
       ]
